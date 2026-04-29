@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillTreeManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class SkillTreeManager : MonoBehaviour
     [Header("서비스")]
     [SerializeField] private SkillUnlockService unlockService;
     [SerializeField] private SkillEffectLogService effectLogService;
+    [SerializeField] private SkillTreeSaveService saveService;
+
+    [Header("초기화 버튼")]
+    [SerializeField] private Button resetButton;
 
     private void OnEnable()
     {
@@ -21,6 +26,11 @@ public class SkillTreeManager : MonoBehaviour
             {
                 skill.OnLearned += HandleSkillLearned;
             }
+        }
+
+        if (resetButton != null)
+        {
+            resetButton.onClick.AddListener(ResetSkillTree);
         }
     }
 
@@ -33,19 +43,16 @@ public class SkillTreeManager : MonoBehaviour
                 skill.OnLearned -= HandleSkillLearned;
             }
         }
+
+        if (resetButton != null)
+        {
+            resetButton.onClick.RemoveListener(ResetSkillTree);
+        }
     }
 
     private void Start()
     {
-        if (startSkill != null)
-        {
-            startSkill.SetAvailable();
-
-            if (startSkill.SkillData != null)
-            {
-                Debug.Log($"{startSkill.SkillData.SkillName} 스킬이 열렸습니다.");
-            }
-        }
+        LoadSkillTree();
     }
 
     private void HandleSkillLearned(SkillNode learnedSkill)
@@ -59,5 +66,71 @@ public class SkillTreeManager : MonoBehaviour
         {
             unlockService.UnlockLinkedSkills(learnedSkill);
         }
+
+        SaveSkillTree();
+    }
+
+    private void LoadSkillTree()
+    {
+        ResetAllSkillsToLocked();
+
+        if (saveService == null)
+        {
+            OpenStartSkill();
+            return;
+        }
+
+        List<string> learnedSkillIds = saveService.LoadLearnedSkillIds();
+
+        if (learnedSkillIds.Count <= 0)
+        {
+            OpenStartSkill();
+            return;
+        }
+
+        RestoreLearnedSkills(learnedSkillIds);
+        RebuildAvailableSkills();
+
+        OpenStartSkill();
+
+        Debug.Log("스킬트리 불러오기 완료");
+    }
+
+    private void SaveSkillTree()
+    {
+        if (saveService == null) return;
+
+        List<string> learnedSkillIds = new List<string>();
+
+        foreach (SkillNode skill in allSkills)
+        {
+            if (skill == null) continue;
+
+            if (!skill.IsLearned()) continue;
+
+            if (string.IsNullOrEmpty(skill.SkillId)) continue;
+
+            learnedSkillIds.Add(skill.SkillId);
+        }
+
+        saveService.SaveLearnedSkillIds(learnedSkillIds);
+    }
+
+    private void ResetSkillTree()
+    {
+        if (saveService != null)
+        {
+            saveService.ClearSaveData();
+        }
+
+        ResetAllSkillsToLocked();
+        OpenStartSkill();
+
+        Debug.Log("스킬트리가 초기화되었습니다.");
+    }
+
+    private void ResetAllSkillsToLocked()
+    {
+
     }
 }

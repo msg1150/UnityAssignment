@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0316fc4308a95e84b876a72e86707097
+guid: c336600da44fa534faadbb3a0f3f9cbe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5170290424441156827
-    second: ButtonImage_0
+      213: 8550879762167630309
+    second: SkillTreeBackground_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -96,106 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkillButton_Locked
+      name: SkillTreeBackground_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 707
-        width: 438
-        height: 438
+        x: 0
+        y: 0
+        width: 1672
+        height: 941
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd43b666fbf80c740800000000000000
-      internalID: 5170290424441156827
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkillButton_Available
-      rect:
-        serializedVersion: 2
-        x: 695
-        y: 707
-        width: 438
-        height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f8d4e702e1e6484fa0cffca5142f2f9
-      internalID: 612797913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkillButton_Learned
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 120
-        width: 438
-        height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a5fd85f515fe00645a7493906654443a
-      internalID: -2006487620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SkillButton_Selected
-      rect:
-        serializedVersion: 2
-        x: 697
-        y: 120
-        width: 438
-        height: 438
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 72c673deb2b701b43a1ec4b591838a74
-      internalID: 1462769550
+      spriteID: 5e90415d6d3daa670800000000000000
+      internalID: 8550879762167630309
       vertices: []
       indices: 
       edges: []
@@ -204,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5d770bb8341373c4a873b9332cd133a7
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -212,14 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":627.0,"y":627.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      SkillButton_Available: 612797913
-      SkillButton_Learned: -2006487620
-      SkillButton_Locked: 5170290424441156827
-      SkillButton_Selected: 1462769550
+      SkillTreeBackground_0: 8550879762167630309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -16,8 +16,23 @@ public class SkillNode : MonoBehaviour
     public SkillNodeState State => state;
     public IReadOnlyList<SkillNode> LinkedSkills => linkedSkills;
 
+    public string SkillId
+    {
+        get
+        {
+            if (skillData == null) return string.Empty;
+            return skillData.SkillId;
+        }
+    }
+
     public event Action<SkillNode> OnStateChanged;
     public event Action<SkillNode> OnLearned;
+
+    public void ResetToLocked()
+    {
+        state = SkillNodeState.Locked;
+        OnStateChanged?.Invoke(this);
+    }
 
     public void SetAvailable ()
     {
@@ -36,6 +51,12 @@ public class SkillNode : MonoBehaviour
 
         OnStateChanged?.Invoke(this);
         OnLearned?.Invoke(this);
+    }
+
+    public void RestoreLearned()
+    {
+        state = SkillNodeState.Learned;
+        OnStateChanged?.Invoke(this);
     }
 
     public bool IsLocked()
