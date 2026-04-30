@@ -131,6 +131,54 @@ public class SkillTreeManager : MonoBehaviour
 
     private void ResetAllSkillsToLocked()
     {
+        foreach (SkillNode skill in allSkills)
+        {
+            if (skill != null)
+            {
+                skill.ResetToLocked();
+            }
+        }
+    }
 
+    private void OpenStartSkill()
+    {
+        if (startSkill == null) return;
+
+        startSkill.SetAvailable();
+
+        if (startSkill.SkillData != null && startSkill.IsAvailable())
+        {
+            Debug.Log($"{startSkill.SkillData.SkillName} 스킬이 열렸습니다.");
+        }
+    }
+
+    private void RestoreLearnedSkills(List<string> learnedSkillIds)
+    {
+        foreach (SkillNode skill in allSkills)
+        {
+            if (skill == null) continue;
+
+            if (string.IsNullOrEmpty(skill.SkillId)) continue;
+
+            if (learnedSkillIds.Contains(skill.SkillId))
+            {
+                skill.RestoreLearned();
+            }
+        }
+    }
+
+    private void RebuildAvailableSkills()
+    {
+        if (unlockService == null) return;
+
+        foreach (SkillNode skill in allSkills)
+        {
+            if (skill == null) continue;
+
+            if (skill.IsLearned())
+            {
+                unlockService.UnlockLinkedSkills(skill, false);
+            }
+        }
     }
 }

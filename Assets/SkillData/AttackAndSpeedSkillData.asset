@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0bd9628b9718d4ca268c56b83ece7d, type: 3}
   m_Name: AttackAndSpeedSkillData
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
+  skillId: attackandspeed
   skillName: "\uACF5\uACA9\uB825, \uC774\uB3D9\uC18D\uB3C4 \uAC15\uD654"
   effects:
   - statName: "\uACF5\uACA9\uB825"

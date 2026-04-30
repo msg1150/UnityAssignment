@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0bd9628b9718d4ca268c56b83ece7d, type: 3}
   m_Name: ManaSkillData
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
+  skillId: mana
   skillName: "\uB9C8\uB098 \uAC15\uD654"
   effects:
   - statName: "\uB9C8\uB098"

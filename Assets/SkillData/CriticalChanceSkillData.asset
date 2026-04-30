@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0bd9628b9718d4ca268c56b83ece7d, type: 3}
   m_Name: CriticalChanceSkillData
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
+  skillId: criticalchance
   skillName: "\uCE58\uBA85\uD0C0 \uD655\uB960 \uAC15\uD654"
   effects:
   - statName: "\uCE58\uBA85\uD0C0 \uD655\uB960"
